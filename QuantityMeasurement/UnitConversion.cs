@@ -33,6 +33,7 @@ namespace QuantityMeasurement
             KG_TO_GRAMS,
             TONNE_TO_KG,
             GRAMS_TO_KG,
+            FAHRENHEIT_TO_CELSIUS,
         }
 
         public double GetConversionUnit(Units unit)
@@ -69,6 +70,8 @@ namespace QuantityMeasurement
                     return 1000;
                 case Units.GRAMS_TO_KG:
                     return 1 / 1000.0d;
+                case Units.FAHRENHEIT_TO_CELSIUS:
+                    return 100 / 212d;
                 default:
                     return 1;
             }

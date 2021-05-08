@@ -208,5 +208,12 @@ namespace QuantityMeasurementTest
             double kilogram = this.quantityMeasurements.GetConvertedValue(givenValues, UnitConversion.Units.TONNE_TO_KG, UnitConversion.Units.GRAMS_TO_KG);
             Assert.AreEqual(1001, kilogram);
         }
+        [Test]
+        public void GivenFahrenheitValue_ConvertedToCelsius_ShouldReturnEqual()
+        {
+            double[] fahrenheit = { 212.0 };
+            double celsious = this.quantityMeasurements.GetConvertedValue(fahrenheit, UnitConversion.Units.FAHRENHEIT_TO_CELSIUS);
+            Assert.AreEqual(100, celsious);
+        }
     }
 }
