@@ -159,5 +159,19 @@ namespace QuantityMeasurementTest
             double inch = this.quantityMeasurements.GetConvertedValue(inchValues, UnitConversion.Units.INCH_TO_INCH, UnitConversion.Units.CENTIMETER_TO_INCH);
             Assert.AreEqual(3.0, inch);
         }
+        [Test]
+        public void GivenOneGallonValue_WhenConverted_ShouldReturnEqual()
+        {
+            double[] gallon = { 1.0 };
+            double litre = this.quantityMeasurements.GetConvertedValue(gallon, UnitConversion.Units.GALLON_TO_LITRE);
+            Assert.AreEqual(3.78, litre);
+        }
+        [Test]
+        public void GivenOneLitreValue_WhenConverted_ShouldReturnEqual()
+        {
+            double[] litre = { 1.0 };
+            double ml = this.quantityMeasurements.GetConvertedValue(litre, UnitConversion.Units.LITRE_TO_ML);
+            Assert.AreEqual(1000, ml);
+        }
     }
 }

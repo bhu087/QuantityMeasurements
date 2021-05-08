@@ -26,6 +26,8 @@ namespace QuantityMeasurement
             INCH_TO_INCH,
             INCH_TO_CENTIMETER,
             CENTIMETER_TO_INCH,
+            GALLON_TO_LITRE,
+            LITRE_TO_ML,
         }
 
         public double GetConversionUnit(Units unit)
@@ -50,6 +52,10 @@ namespace QuantityMeasurement
                     return 1 / 2.5d;
                 case Units.INCH_TO_INCH:
                     return 1;
+                case Units.GALLON_TO_LITRE:
+                    return 3.78d;
+                case Units.LITRE_TO_ML:
+                    return 1000;
                 default:
                     return 0;
             }
