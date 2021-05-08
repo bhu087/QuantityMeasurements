@@ -24,9 +24,14 @@ namespace QuantityMeasurement
         /// </summary>
         /// <param name="givenValue">given value</param>
         /// <returns>converted value</returns>
-        public double GetConvertedValue(double givenValue, UnitConversion.Units unit)
+        public double GetConvertedValue(double[] givenValue, params UnitConversion.Units[] unit)
         {
-            return givenValue * this.unitConversion.GetConversionUnit(unit);
+            double value = 0.0;
+            for (int i = 0; i < givenValue.Length; i++ )
+            {
+                value += givenValue[i] * this.unitConversion.GetConversionUnit(unit[i]);
+            }
+            return value;
         }
         
         public override bool Equals(object obj)

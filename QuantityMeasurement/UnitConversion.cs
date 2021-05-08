@@ -23,7 +23,9 @@ namespace QuantityMeasurement
             YARD_TO_FEET,
             INCH_TO_YARD,
             YARD_TO_INCH,
+            INCH_TO_INCH,
             INCH_TO_CENTIMETER,
+            CENTIMETER_TO_INCH,
         }
 
         public double GetConversionUnit(Units unit)
@@ -44,6 +46,10 @@ namespace QuantityMeasurement
                     return 36;
                 case Units.INCH_TO_CENTIMETER:
                     return 2.5;
+                case Units.CENTIMETER_TO_INCH:
+                    return 1 / 2.5d;
+                case Units.INCH_TO_INCH:
+                    return 1;
                 default:
                     return 0;
             }
