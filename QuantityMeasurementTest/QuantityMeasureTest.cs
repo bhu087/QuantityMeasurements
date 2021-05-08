@@ -82,5 +82,41 @@ namespace QuantityMeasurementTest
             QuantityMeasurements quantityType2 = new QuantityMeasurements();
             Assert.AreEqual(quantityType1, quantityType2);
         }
+        [Test]
+        public void GivenFeetValue_WhenConvertedToYard_ShouldReturnNotEqual()
+        {
+            double yard = quantityMeasurements.GetConvertedValue(3, UnitConversion.Units.FEET_TO_YARD);
+            Assert.AreEqual(1.0, Math.Round(yard));
+        }
+        [Test]
+        public void GivenOneFeetValue_WhenConvertedToYard_ShouldReturnNotEqual()
+        {
+            double yard = quantityMeasurements.GetConvertedValue(1.0, UnitConversion.Units.FEET_TO_YARD);
+            Assert.AreNotEqual(1.0, Math.Round(yard));
+        }
+        [Test]
+        public void GivenOneInchValue_WhenConvertedToYard_ShouldReturnNotEqual()
+        {
+            double yard = quantityMeasurements.GetConvertedValue(1.0, UnitConversion.Units.INCH_TO_YARD);
+            Assert.AreNotEqual(1.0, Math.Round(yard));
+        }
+        [Test]
+        public void GivenOneYardValue_WhenConvertedToInch_ShouldReturnEqual()
+        {
+            double inch = quantityMeasurements.GetConvertedValue(1.0, UnitConversion.Units.YARD_TO_INCH);
+            Assert.AreEqual(36.0, inch);
+        }
+        [Test]
+        public void GivenThirtySixInchValue_WhenConvertedToYard_ShouldReturnEqual()
+        {
+            double yard = quantityMeasurements.GetConvertedValue(36.0, UnitConversion.Units.INCH_TO_YARD);
+            Assert.AreEqual(1, yard);
+        }
+        [Test]
+        public void GivenOneYardValue_WhenConvertedToFeet_ShouldReturnEqual()
+        {
+            double feet = quantityMeasurements.GetConvertedValue(1.0, UnitConversion.Units.YARD_TO_FEET);
+            Assert.AreEqual(3, feet);
+        }
     }
 }

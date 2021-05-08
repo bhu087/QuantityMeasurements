@@ -19,6 +19,10 @@ namespace QuantityMeasurement
         {
             INCH_TO_FEET,
             FEET_TO_INCH,
+            FEET_TO_YARD,
+            YARD_TO_FEET,
+            INCH_TO_YARD,
+            YARD_TO_INCH,
         }
 
         public double GetConversionUnit(Units unit)
@@ -29,6 +33,14 @@ namespace QuantityMeasurement
                     return 1 / 12d;
                 case Units.FEET_TO_INCH:
                     return 1 * 12;
+                case Units.FEET_TO_YARD:
+                    return (1 / 3d);
+                case Units.YARD_TO_FEET:
+                    return 1 * 3;
+                case Units.INCH_TO_YARD:
+                    return 1 / 36d;
+                case Units.YARD_TO_INCH:
+                    return 36;
                 default:
                     return 0;
             }
