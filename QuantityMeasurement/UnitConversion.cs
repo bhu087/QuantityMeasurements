@@ -30,6 +30,9 @@ namespace QuantityMeasurement
             LITRE_TO_ML,
             ML_TO_LITRE,
             SAME_UNIT,
+            KG_TO_GRAMS,
+            TONNE_TO_KG,
+            GRAMS_TO_KG,
         }
 
         public double GetConversionUnit(Units unit)
@@ -59,6 +62,12 @@ namespace QuantityMeasurement
                 case Units.LITRE_TO_ML:
                     return 1000.0d;
                 case Units.ML_TO_LITRE:
+                    return 1 / 1000.0d;
+                case Units.KG_TO_GRAMS:
+                    return 1000;
+                case Units.TONNE_TO_KG:
+                    return 1000;
+                case Units.GRAMS_TO_KG:
                     return 1 / 1000.0d;
                 default:
                     return 1;

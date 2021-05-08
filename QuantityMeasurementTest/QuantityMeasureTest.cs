@@ -187,5 +187,26 @@ namespace QuantityMeasurementTest
             double litre = this.quantityMeasurements.GetConvertedValue(givenValues, UnitConversion.Units.SAME_UNIT, UnitConversion.Units.ML_TO_LITRE);
             Assert.AreEqual(2, litre);
         }
+        [Test]
+        public void GivenKGValue_WhenConverted_ToGrams_ShouldReturnEqual()
+        {
+            double[] kilogram = { 1.0 };
+            double grams = this.quantityMeasurements.GetConvertedValue(kilogram, UnitConversion.Units.KG_TO_GRAMS);
+            Assert.AreEqual(1000, grams);
+        }
+        [Test]
+        public void GivenTonneValue_WhenConverted_ToKg_ShouldReturnEqual()
+        {
+            double[] tonne = { 1.0 };
+            double kilogram = this.quantityMeasurements.GetConvertedValue(tonne, UnitConversion.Units.TONNE_TO_KG);
+            Assert.AreEqual(1000, kilogram);
+        }
+        [Test]
+        public void AddTonneValueAndGrams_WhenAdded_ShouldReturnEqual()
+        {
+            double[] givenValues = { 1.0, 1000.0 };
+            double kilogram = this.quantityMeasurements.GetConvertedValue(givenValues, UnitConversion.Units.TONNE_TO_KG, UnitConversion.Units.GRAMS_TO_KG);
+            Assert.AreEqual(1001, kilogram);
+        }
     }
 }
