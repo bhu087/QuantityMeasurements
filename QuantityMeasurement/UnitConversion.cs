@@ -28,6 +28,8 @@ namespace QuantityMeasurement
             CENTIMETER_TO_INCH,
             GALLON_TO_LITRE,
             LITRE_TO_ML,
+            ML_TO_LITRE,
+            SAME_UNIT,
         }
 
         public double GetConversionUnit(Units unit)
@@ -55,9 +57,11 @@ namespace QuantityMeasurement
                 case Units.GALLON_TO_LITRE:
                     return 3.78d;
                 case Units.LITRE_TO_ML:
-                    return 1000;
+                    return 1000.0d;
+                case Units.ML_TO_LITRE:
+                    return 1 / 1000.0d;
                 default:
-                    return 0;
+                    return 1;
             }
         }
     }

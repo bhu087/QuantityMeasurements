@@ -173,5 +173,19 @@ namespace QuantityMeasurementTest
             double ml = this.quantityMeasurements.GetConvertedValue(litre, UnitConversion.Units.LITRE_TO_ML);
             Assert.AreEqual(1000, ml);
         }
+        [Test]
+        public void GivenOneGallonAndOneLitreValue_WhenConverted_ShouldReturnEqual()
+        {
+            double[] givenValues = { 1.0, 3.78 };
+            double litre = this.quantityMeasurements.GetConvertedValue(givenValues, UnitConversion.Units.GALLON_TO_LITRE, UnitConversion.Units.SAME_UNIT);
+            Assert.AreEqual(7.56, litre);
+        }
+        [Test]
+        public void GivenOneLitreAndOneMLValue_WhenConverted_ShouldReturnEqual()
+        {
+            double[] givenValues = { 1.0, 1000 };
+            double litre = this.quantityMeasurements.GetConvertedValue(givenValues, UnitConversion.Units.SAME_UNIT, UnitConversion.Units.ML_TO_LITRE);
+            Assert.AreEqual(2, litre);
+        }
     }
 }
