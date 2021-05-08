@@ -118,5 +118,11 @@ namespace QuantityMeasurementTest
             double feet = quantityMeasurements.GetConvertedValue(1.0, UnitConversion.Units.YARD_TO_FEET);
             Assert.AreEqual(3, feet);
         }
+        [Test]
+        public void GivenTwoInchValue_WhenConvertedToCentimeter_ShouldReturnEqual()
+        {
+            double centimeter = quantityMeasurements.GetConvertedValue(2.0, UnitConversion.Units.INCH_TO_CENTIMETER);
+            Assert.AreEqual(5, centimeter);
+        }
     }
 }
